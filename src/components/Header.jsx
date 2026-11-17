@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import logoImg from '../assets/images/logo.png';
 
 export default function Header() {
@@ -7,8 +7,6 @@ export default function Header() {
   const location = useLocation();
 
   // Проверяем, что путь начинается с /product/ и после слэша есть символы
-  // /product          -> false (каталог)
-  // /product/insarag  -> true  (конкретный товар)
   const isProductDetailPage = /^\/product\/.+/.test(location.pathname);
 
   useEffect(() => {
@@ -25,14 +23,22 @@ export default function Header() {
     <header className={headerClass}>
       <div className="container header-inner">
         <div className="logo">
-          <img src={logoImg} alt="UCP Export" className="logo-img" />
+          {/* Логотип ведет на главную */}
+          <Link to="/">
+            <img src={logoImg} alt="UCP Export" className="logo-img" />
+          </Link>
         </div>
         <nav className="nav">
-          <a href="/#about">О компании</a>
-          <a href="/#directions">Направления</a>
-          <a href="/#services">Услуги</a>
-          <a href="/#education">Образование</a>
-          <a href="/#contacts">Контакты</a>
+          {/* Главная */}
+          <Link to="/">Главная</Link>
+          {/* Продукция - ведет на страницу каталога */}
+          <Link to="/products">Продукция</Link>
+          {/* Остальные ведут на якоря на главной странице */}
+          <Link to="/#services">Курсы</Link>
+          <Link to="/#education">Образование</Link>
+          <Link to="/#education">Испытания</Link>
+          <Link to="/#education">Оборудование</Link>
+          <Link to="/#contacts">Контакты</Link>
         </nav>
         <div className="header-actions">
           <button className="lang-btn">RU ▾</button>

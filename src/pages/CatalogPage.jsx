@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { categories, products } from '../data/products';
-import heroBannerImg from '../assets/images/card1.png';
+import heroBannerImg from '../assets/images/market-bg.png';
 
 // ВНИМАНИЕ: Если папка cards лежит прямо в src (как на твоем скриншоте), 
 // то здесь должно быть '../cards/1.png' (без /assets/).

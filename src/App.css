@@ -483,11 +483,11 @@ h1, h2, h3, h4 { color: #111; }
 .footer-bg {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 50%; 
+  left: 0; /* Теперь прижато к левому краю */
+  width: 100%; /* Картинка на всю ширину */
   height: 100%;
   background-size: cover;
-  background-position: center left;
+  background-position: center; /* Центрируем картинку */
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -498,7 +498,8 @@ h1, h2, h3, h4 { color: #111; }
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #151515 0%, #151515 30%, rgba(21,21,21,0.6) 60%, rgba(21,21,21,0.2) 100%);
+  /* Однородное затемнение вместо градиента, чтобы текст читался на любом фоне */
+  background: rgba(21, 21, 21, 0.75); 
   z-index: 2;
 }
 
@@ -535,6 +536,24 @@ h1, h2, h3, h4 { color: #111; }
   transition: 0.3s; 
 }
 .footer-col ul li:hover { color: white; }
+
+.nav {
+  display: flex;
+  gap: 24px; 
+}
+
+.nav a { 
+  color: #ddd; 
+  text-decoration: none; 
+  font-size: 14px; 
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.nav a:hover { 
+  color: white; 
+  transform: translateY(-2px); /* Текст плавно приподнимается на 2 пикселя */
+}
 
 .contact-item {
   display: flex;
