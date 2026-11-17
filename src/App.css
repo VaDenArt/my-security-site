@@ -78,7 +78,10 @@ h1, h2, h3, h4 { color: #111; }
 .header.scrolled {
   background: rgba(5, 5, 5, 0.6);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Обязательно для Safari */
+  /* Эти две строчки заставляют браузер выделить элемент в отдельный слой и применить блюр */
+  transform: translateZ(0); 
+  -webkit-transform: translateZ(0);
 }
 
 .header-inner { display: flex; justify-content: space-between; align-items: center; }
