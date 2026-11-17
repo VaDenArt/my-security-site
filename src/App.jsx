@@ -36,7 +36,8 @@ function HomePage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    // ВОТ ЗДЕСЬ ДОБАВЛЕН basename
+    <BrowserRouter basename="/my-security-site">
       <ScrollToTop />
       <div className="app-container">
         <Header />
